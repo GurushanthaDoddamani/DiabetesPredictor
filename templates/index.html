@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>DiabeticPredictor API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>DiabeticPrediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+    	Enter pregnancies: <input type="text" name="pregnancies" placeholder="pregnancies: " required="required" /><br>
+
+      Enter glucose: <input type="text" name="glucose" placeholder="Enter glucose: " required="required" /><br>
+
+		  Enter bloodPressure: <input type="text" name="bloodPressure" placeholder="Enter bloodPressure: " required="required" /><br>
+
+       Enter SkinThickness: <input type="text" name="skinThickness" placeholder="Enter SkinThickness: " required="required" /><br>
+
+      Enter Insulin: <input type="text" name="insulin" placeholder="Enter Insulin: " required="required" /><br>
+
+Enter BMI: <input type="text" name="bmi" placeholder="Enter BMI: " required="required" /><br>
+
+
+Enter DiabetesPedigreeFunction: <input type="text" name="diabetesPedigreeFunction" placeholder="Enter DiabetesPedigreeFunction: " required="required" /><br>
+
+Enter Age: <input type="text" name="age" placeholder="Enter Age: " required="required" /><br>
+
+
+
+
+
+      <!--
+        <label for="state">Choose State:</label>
+        <select id="state" name="state">
+            <option value="California">California</option>
+            <option value="Florida">Florida</option>
+            <option value="New York">New York</option>
+        </select>
+        -->
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Diabetes</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
